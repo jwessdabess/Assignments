@@ -36,6 +36,7 @@ int main()
 	double base = 0;
 	double height = 0;
 	double length = 0;
+	int counter = 0;
 	
 	do
 	{
@@ -57,6 +58,7 @@ int main()
 			getRadius(radius);
 			cout << "The area of the circle is: " << setprecision(2) << fixed <<
 				areaCircle(radius) << endl << endl;
+			counter++;
 			break;
 
 		case 't':
@@ -66,13 +68,16 @@ int main()
 				endl;
 			cout << "The area of the triangle is " << setprecision(2) << fixed <<
 				areaTriangle(base, height) << endl << endl;
+			counter++;
 			break;
 
 		case 's':
 		case 'S':
 			getRadius(radius);
 			cout << "The volume of the sphere is: " << setprecision(2) << fixed <<
-				volumeSphere(radius) << endl;
+				volumeSphere(radius) << endl << endl;
+			counter++;
+			break;
 
 		case 'p':
 		case 'P':
@@ -81,17 +86,22 @@ int main()
 			cout << "Base = " << base << " " << "Height = " << height << " " <<
 				"Length = " << length << endl;
 			cout << "The volume of the triangular prism is: " << setprecision(2) <<
-				fixed << volumePrism(base, height, length) << endl;
+				fixed << volumePrism(base, height, length) << endl << endl;
+			counter++;
+			break;
 
 		case 'a':
 		case 'A':
 			aboutAuthor();
+			break;
 
 		default:
-			cout << "The option that you selected " << choice << " is not valid.\n";
+			cout << "The option that you selected " << choice << " is not valid.\n\n";
 		}
 	} while (choice != 'q' && choice != 'Q');
 	
+	cout << "The number of calculations is: " << counter << endl;
+
 	system("pause");
 }
 
@@ -151,13 +161,14 @@ int main()
 	{
 		cout << endl << "Enter the length: ";
 		cin >> l;
+		cout << endl;
 	}
 
 	//Calculates the volume of a triangular prism.  It must call the area of the triangle 
 	//function and use its return value in the calculation.  Returns the volume.
 	double volumePrism(double b, double h, double l)
 	{
-		return ((1 / 2) * b * l) * h;
+		return ((1 / 2) * b * h) * l;
 	}
 
 	//	Displays:
@@ -168,4 +179,25 @@ int main()
 	void aboutAuthor()
 	{
 		cout << "Joshua Wessling, Computer Science, Liberty High.\n\n";
+	}
+
+	// This function will either 
+	// -increment a counter
+	// - display the counter value
+	// When the “display” argument is false, it increments a local counter variable that retains
+	// its value between function calls – but does not display the variable.
+	// When the “display” argument is true, it displays the value of the counter variable - but does 
+	// not increment it.
+
+	void count(bool display = false)
+
+	// Returns true if the number is negative and false if it is not.
+		bool IsNegative(double val)
+	{
+		bool status;
+
+		if (val < 0)
+			status true;
+		else (val >= 0)
+			status false;
 	}
